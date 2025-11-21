@@ -1,0 +1,59 @@
+2025/11/22-04:56:13.434 b7c Reusing MANIFEST D:\Hackathon_Project\Backend\.wwebjs_auth\session-doctor-assistant\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/11/22-04:56:13.434 b7c Recovering log #2253
+2025/11/22-04:56:13.434 b7c Reusing old log D:\Hackathon_Project\Backend\.wwebjs_auth\session-doctor-assistant\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/002253.log 
+2025/11/22-04:56:14.076 2e08 Compacting 1@0 + 0@1 files
+2025/11/22-04:56:14.082 2e08 Generated table #2256@0: 14414 keys, 216785 bytes
+2025/11/22-04:56:14.088 2e08 Generated table #2257@0: 4713 keys, 350379 bytes
+2025/11/22-04:56:14.089 2e08 Generated table #2258@0: 64 keys, 7083 bytes
+2025/11/22-04:56:14.089 2e08 Compacted 1@0 + 0@1 files => 574247 bytes
+2025/11/22-04:56:14.090 2e08 compacted to: files[ 0 3 27 0 0 0 0 ]
+2025/11/22-04:56:14.090 2e08 Delete type=2 #2254
+2025/11/22-04:56:14.605 b7c Level-0 table #2260: started
+2025/11/22-04:56:14.606 b7c Level-0 table #2260: 20274 bytes OK
+2025/11/22-04:56:14.607 b7c Delete type=0 #2253
+2025/11/22-04:56:14.607 b7c Manual compaction at level-0 from '\x00-\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00.\x00\x00\x00' @ 0 : 0; will stop at '\x00-\x00\x00\x05' @ 7161539 : 1
+2025/11/22-04:56:14.607 b7c Compacting 1@0 + 3@1 files
+2025/11/22-04:56:14.614 b7c Generated table #2261@0: 14901 keys, 226535 bytes
+2025/11/22-04:56:14.621 b7c Generated table #2262@0: 4713 keys, 350381 bytes
+2025/11/22-04:56:14.622 b7c Generated table #2263@0: 64 keys, 7083 bytes
+2025/11/22-04:56:14.622 b7c Compacted 1@0 + 3@1 files => 583999 bytes
+2025/11/22-04:56:14.622 b7c compacted to: files[ 0 3 27 0 0 0 0 ]
+2025/11/22-04:56:14.623 b7c Delete type=2 #2260
+2025/11/22-04:56:14.624 b7c Manual compaction at level-0 from '\x00-\x00\x00\x05' @ 7161539 : 1 .. '\x00.\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/11/22-04:56:15.901 a78 Compacting 1@1 + 6@2 files
+2025/11/22-04:56:15.922 a78 Generated table #2264@1: 3038 keys, 2155021 bytes
+2025/11/22-04:56:15.956 a78 Generated table #2265@1: 23171 keys, 2215346 bytes
+2025/11/22-04:56:15.999 a78 Generated table #2266@1: 27827 keys, 2271173 bytes
+2025/11/22-04:56:16.035 a78 Generated table #2267@1: 15439 keys, 2190891 bytes
+2025/11/22-04:56:16.079 a78 Generated table #2268@1: 39352 keys, 2208831 bytes
+2025/11/22-04:56:16.113 a78 Generated table #2269@1: 32440 keys, 2250499 bytes
+2025/11/22-04:56:16.114 a78 Generated table #2270@1: 1 keys, 3778 bytes
+2025/11/22-04:56:16.114 a78 Compacted 1@1 + 6@2 files => 13295539 bytes
+2025/11/22-04:56:16.114 a78 compacted to: files[ 0 2 28 0 0 0 0 ]
+2025/11/22-04:56:16.114 a78 Delete type=2 #2197
+2025/11/22-04:56:16.114 a78 Delete type=2 #2198
+2025/11/22-04:56:16.114 a78 Delete type=2 #2199
+2025/11/22-04:56:16.115 a78 Delete type=2 #2239
+2025/11/22-04:56:16.115 a78 Delete type=2 #2240
+2025/11/22-04:56:16.115 a78 Delete type=2 #2241
+2025/11/22-04:56:16.115 a78 Delete type=2 #2256
+2025/11/22-04:56:16.115 a78 Delete type=2 #2257
+2025/11/22-04:56:16.115 a78 Delete type=2 #2258
+2025/11/22-04:56:16.115 a78 Delete type=2 #2262
+2025/11/22-04:56:16.150 b7c Compacting 1@1 + 7@2 files
+2025/11/22-04:56:16.183 b7c Generated table #2271@1: 88737 keys, 2239785 bytes
+2025/11/22-04:56:16.206 b7c Generated table #2272@1: 38010 keys, 2205497 bytes
+2025/11/22-04:56:16.230 b7c Generated table #2273@1: 32030 keys, 2187238 bytes
+2025/11/22-04:56:16.272 b7c Generated table #2274@1: 71833 keys, 2238116 bytes
+2025/11/22-04:56:16.313 b7c Generated table #2275@1: 56355 keys, 2224746 bytes
+2025/11/22-04:56:16.343 b7c Generated table #2276@1: 32584 keys, 1947992 bytes
+2025/11/22-04:56:16.343 b7c Compacted 1@1 + 7@2 files => 13043374 bytes
+2025/11/22-04:56:16.343 b7c compacted to: files[ 0 1 27 0 0 0 0 ]
+2025/11/22-04:56:16.344 b7c Delete type=2 #2215
+2025/11/22-04:56:16.344 b7c Delete type=2 #2216
+2025/11/22-04:56:16.344 b7c Delete type=2 #2217
+2025/11/22-04:56:16.344 b7c Delete type=2 #2218
+2025/11/22-04:56:16.344 b7c Delete type=2 #2225
+2025/11/22-04:56:16.344 b7c Delete type=2 #2249
+2025/11/22-04:56:16.344 b7c Delete type=2 #2250
+2025/11/22-04:56:16.345 b7c Delete type=2 #2261

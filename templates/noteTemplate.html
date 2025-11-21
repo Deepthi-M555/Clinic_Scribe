@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Medical Report</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            padding-bottom: 80px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #005DAA, #0097CE);
+            color: white;
+            padding: 20px 30px;
+            display: table;
+            width: 100%;
+        }
+
+        .logo-section {
+            display: table-cell;
+            width: 80px;
+            vertical-align: middle;
+        }
+
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #005DAA;
+            font-weight: bold;
+        }
+
+        .clinic-info {
+            display: table-cell;
+            vertical-align: middle;
+            padding-left: 20px;
+        }
+
+        .clinic-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .header-substrip {
+            background: #0D6EFD;
+            height: 8px;
+        }
+
+        /* Info Box */
+        .info-box {
+            margin: 25px 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .info-grid { display: table; width: 100%; }
+        .info-row  { display: table-row; }
+        .info-column {
+            display: table-cell;
+            padding: 20px;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        .info-column:first-child {
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .info-item { margin-bottom: 12px; }
+
+        .info-label {
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            color: #222;
+            font-weight: 500;
+        }
+
+        .qr-placeholder {
+            width: 80px;
+            height: 80px;
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 10px;
+            color: #999;
+            padding: 5px;
+        }
+
+        /* Content */
+        .content { padding: 0 30px 30px; }
+
+        .section { margin-bottom: 25px; }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #005DAA;
+            text-transform: uppercase;
+            border-bottom: 2px solid #0097CE;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+        }
+
+        /* Summary Highlight */
+        .summary-highlight {
+            border-left: 4px solid #0D6EFD;
+            background: #f0f7ff;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .summary-text {
+            color: #444;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Vitals Table */
+        .vitals-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .vitals-table thead {
+            background: #005DAA;
+            color: white;
+        }
+
+        .vitals-table th {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .vitals-table td {
+            padding: 12px 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .vitals-table tr:nth-child(even) { background: #fafafa; }
+
+        /* Lists */
+        .medical-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .medical-list li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+        }
+
+        .medical-list li:before {
+            content: "•";
+            color: #0D6EFD;
+            font-size: 18px;
+            font-weight: bold;
+            position: absolute;
+            left: 8px;
+        }
+
+        .body-text {
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Medications Table */
+        .medications-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .medications-table thead {
+            background: #0097CE;
+            color: white;
+        }
+
+        .medications-table td,
+        .medications-table th {
+            padding: 12px 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .medications-table tr:nth-child(even) { background: #fafafa; }
+
+        /* Warning */
+        .warning-box {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+        }
+
+        /* Patient Instructions */
+        .info-summary-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .info-summary-text {
+            color: #1565c0;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        /* Signature Section */
+        .signature-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .signature-grid { display: table; width: 100%; }
+        .signature-row { display: table-row; }
+
+        .signature-block {
+            display: table-cell;
+            width: 33%;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .signature-line {
+            border-top: 1px solid #333;
+            height: 60px;
+            margin-bottom: 8px;
+        }
+
+        .seal-placeholder {
+            width: 80px;
+            height: 80px;
+            border: 2px dashed #999;
+            border-radius: 50%;
+            background: #fafafa;
+            margin: 0 auto 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #005DAA, #0097CE);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 13px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo-placeholder">M+</div>
+            </div>
+
+            <div class="clinic-info">
+                <div class="clinic-name">{{clinic_name}}</div>
+                <div class="contact-info">Phone: {{phone}}</div>
+            </div>
+        </div>
+
+        <div class="header-substrip"></div>
+
+        <!-- INFO BOX -->
+        <div class="info-box">
+            <div class="info-grid">
+                <div class="info-row">
+
+                    <!-- Left -->
+                    <div class="info-column">
+                        <div class="info-item">
+                            <div class="info-label">Patient Name</div>
+                            <div class="info-value">{{patient.name}}</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Age / Sex</div>
+                            <div class="info-value">{{patient.age}} / {{patient.sex}}</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Report Date & Time</div>
+                            <div class="info-value">{{timestamp}}</div>
+                        </div>
+
+                        <div class="qr-placeholder">QR Code<br/>Placeholder</div>
+                    </div>
+
+                    <!-- Right -->
+                    <div class="info-column">
+                        <div class="info-item">
+                            <div class="info-label">Attending Physician</div>
+                            <div class="info-value">{{doctor_name}}</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Chief Complaint</div>
+                            <div class="info-value">{{chief_complaint}}</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Follow-Up</div>
+                            <div class="info-value">{{follow_up}}</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <!-- SUMMARY -->
+            <div class="summary-highlight">
+                <div class="section-title">Patient Summary</div>
+                <div class="summary-text">{{patient_summary}}</div>
+            </div>
+
+            <!-- VITALS -->
+            <div class="section">
+                <div class="section-title">Vital Signs</div>
+                <table class="vitals-table">
+                    <thead>
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Temperature</td><td>{{vitals.temperature}}</td></tr>
+                        <tr><td>Pulse</td><td>{{vitals.pulse}}</td></tr>
+                        <tr><td>Blood Pressure</td><td>{{vitals.blood_pressure}}</td></tr>
+                        <tr><td>Respiratory Rate</td><td>{{vitals.respiratory_rate}}</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- HISTORY -->
+            <div class="section">
+                <div class="section-title">History</div>
+                <ul class="medical-list">
+                    {{history}}
+                </ul>
+            </div>
+
+            <!-- EXAM FINDINGS -->
+            <div class="section">
+                <div class="section-title">Examination Findings</div>
+                <div class="body-text">{{examination_findings}}</div>
+            </div>
+
+            <!-- ASSESSMENT -->
+            <div class="section">
+                <div class="section-title">Assessment</div>
+                <div class="body-text">{{assessment}}</div>
+            </div>
+
+            <!-- DIAGNOSIS -->
+            <div class="section">
+                <div class="section-title">Diagnosis</div>
+                <div class="body-text">{{diagnosis}}</div>
+
+                <div class="info-label" style="margin-top: 12px;">Differential Diagnosis</div>
+                <ul class="medical-list">
+                    {{differential_diagnosis}}
+                </ul>
+            </div>
+
+            <!-- MEDICATIONS -->
+            <div class="section">
+                <div class="section-title">Prescribed Medications</div>
+                <table class="medications-table">
+                    <thead>
+                        <tr><th>Medication</th><th>Dosage</th><th>Duration</th></tr>
+                    </thead>
+                    <tbody>
+                        {{suggested_medications}}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- RED FLAGS -->
+            <div class="warning-box">
+                <div class="section-title">⚠ Red Flags</div>
+                <ul class="medical-list">
+                    {{red_flags}}
+                </ul>
+            </div>
+
+            <!-- PATIENT FRIENDLY SUMMARY -->
+            <div class="info-summary-box">
+                <div class="section-title">Patient Instructions</div>
+                <div class="info-summary-text">{{patient_friendly_summary}}</div>
+            </div>
+
+            <!-- SIGNATURES -->
+            <div class="signature-section">
+                <div class="signature-grid">
+                    <div class="signature-row">
+
+                        <div class="signature-block">
+                            <div class="signature-line"></div>
+                            <div class="signature-name">{{doctor_name}}</div>
+                        </div>
+
+                        <div class="signature-block">
+                            <div class="seal-placeholder"></div>
+                            <div class="signature-name">Clinic Seal</div>
+                        </div>
+
+                        <div class="signature-block">
+                            <div class="signature-line"></div>
+                            <div class="signature-name">{{lab_technician}}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            24/7 Emergency Contact: {{phone}}
+        </div>
+
+    </div>
+</body>
+</html>
